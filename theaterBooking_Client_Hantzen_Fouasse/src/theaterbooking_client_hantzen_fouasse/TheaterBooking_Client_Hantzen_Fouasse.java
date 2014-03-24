@@ -5,7 +5,8 @@
  */
 
 package theaterbooking_client_hantzen_fouasse;
-import  packageCommon.*;
+import  theaterbooking_client_hantzen_fouasse.IHM.*;
+
 /**
  *
  * @author Kevin
@@ -16,7 +17,9 @@ public class TheaterBooking_Client_Hantzen_Fouasse {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        System.out.println("1");
+        ConnectionWindow connectWindow = new ConnectionWindow();
+        connectWindow.setVisible(true);
     }
     
 }
