@@ -17,9 +17,9 @@ import theaterbooking_client_hantzen_fouasse.IHM.Listener.*;
  * @author Kevin
  */
 public class ConnectionWindow extends Window {
-        private JTextField      emailField;
-	private JPasswordField  passwordField;
-        private Button          connectButton;
+        protected JTextField      emailField;
+	protected JPasswordField  passwordField;
+        protected Button          connectButton;
         
         public ConnectionWindow() {
             super();
@@ -44,7 +44,12 @@ public class ConnectionWindow extends Window {
              /*
              * HEY LISTEN !
              */
-             this.connectButton.addActionListener(new ConnectListener(this));
+             this.connectButton.addActionListener(new ConnectListener() {
+                public void actionPerformed(ActionEvent e) {
+                    System.out.println(emailField.getText());
+                    System.out.println(passwordField.getPassword());
+                }
+             });
 
              panel.add(email);
              panel.add(emailField);
