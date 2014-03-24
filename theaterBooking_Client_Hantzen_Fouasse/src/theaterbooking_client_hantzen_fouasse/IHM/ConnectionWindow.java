@@ -9,6 +9,7 @@ package theaterbooking_client_hantzen_fouasse.IHM;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import packageCommon.*;
 import theaterbooking_client_hantzen_fouasse.IHM.Listener.*;
 
 
@@ -46,7 +47,10 @@ public class ConnectionWindow extends Window {
              */
              this.connectButton.addActionListener(new ConnectionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    System.out.println(emailField.getText());
+                    Connection connect = new Connection(emailField.getText(),
+                                                        new String(passwordField.getPassword())
+                                                );
+                
                     System.out.println(passwordField.getPassword());
                 }
              });
