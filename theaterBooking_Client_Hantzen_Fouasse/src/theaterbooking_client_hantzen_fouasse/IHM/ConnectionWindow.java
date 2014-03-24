@@ -8,6 +8,8 @@ package theaterbooking_client_hantzen_fouasse.IHM;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import theaterbooking_client_hantzen_fouasse.IHM.Listener.*;
 
 
 /**
@@ -17,6 +19,7 @@ import java.awt.*;
 public class ConnectionWindow extends Window {
         private JTextField      emailField;
 	private JPasswordField  passwordField;
+        private Button          connectButton;
         
         public ConnectionWindow() {
             super();
@@ -32,16 +35,22 @@ public class ConnectionWindow extends Window {
              panel.setLayout(new FlowLayout());
              panel.setBackground(Color.white);
              
-             JLabel label        = new JLabel("Connection");
-             
-             this.emailField     = new JTextField(10);
+             JLabel email        = new JLabel("Email");
+             JLabel password     = new JLabel("Password");
+             this.emailField     = new JTextField(15);
              this.passwordField  = new JPasswordField(10);
+             this.connectButton  = new Button("Connect");
              
-             JButton connect     = new JButton(new ConnectAction(this, "Connect"));
-             
-             panel.add(label);
+             /*
+             * HEY LISTEN !
+             */
+             this.connectButton.addActionListener(new ConnectListener(this));
+
+             panel.add(email);
              panel.add(emailField);
+             panel.add(password);
              panel.add(passwordField);
+             panel.add(this.connectButton);
              return panel; 
         }
         
