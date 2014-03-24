@@ -6,10 +6,15 @@
 
 package theaterbooking_client_hantzen_fouasse;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Kevin
  */
-public class Window {
+public class Window extends JFrame {
     
+    public Window() {
+        super();
+    }
 }
