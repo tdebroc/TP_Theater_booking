@@ -44,7 +44,7 @@ public class ConnectionWindow extends Window {
              /*
              * HEY LISTEN !
              */
-             this.connectButton.addActionListener(new ConnectListener() {
+             this.connectButton.addActionListener(new ConnectionListener() {
                 public void actionPerformed(ActionEvent e) {
                     System.out.println(emailField.getText());
                     System.out.println(passwordField.getPassword());
