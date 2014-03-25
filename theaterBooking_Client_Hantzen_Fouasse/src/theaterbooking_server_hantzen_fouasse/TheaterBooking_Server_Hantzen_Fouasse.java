@@ -39,24 +39,12 @@ public class TheaterBooking_Server_Hantzen_Fouasse {
  
         System.out.println("Serveur a cree les flux");
  
-       /* int[] tableauAEmettre = {7, 8, 9};
- 
-        out.writeObject(tableauAEmettre);
-        out.flush();
- */
         System.out.println("Serveur: donnees emises");
  
         Object objetRecu =  in.readObject();
-        
-        
-        //Connection connectInfo = (Connection) objetRecu;
-        
-        System.out.println(objetRecu.getClass());
-       /* System.out.println(connectInfo.getEmail());
-        System.out.println(connectInfo.getPassword());
-        */
-        //System.out.println("Serveur recoit: " + Arrays.toString(tableauRecu));
  
+        System.out.println(objetRecu.getClass());
+
         in.close();
         out.close();
         soc.close();
