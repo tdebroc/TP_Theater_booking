@@ -5,7 +5,14 @@
  */
 
 package theaterbooking_server_hantzen_fouasse;
-import  packageCommon.*;
+
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Arrays;
+import packageCommon.*;
 
 /**
  *
@@ -16,8 +23,42 @@ public class TheaterBooking_Server_Hantzen_Fouasse {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) throws Exception  {
+        ServerSocket s = new ServerSocket(4444);
+        System.out.println("Socket serveur: " + s);
+ 
+        Socket soc = s.accept();
+ 
+        System.out.println("Serveur a accepte connexion: " + soc);
+ 
+        ObjectOutputStream out = new ObjectOutputStream(soc.getOutputStream());
+        out.flush();
+ 
+        ObjectInputStream in = new ObjectInputStream(soc.getInputStream());
+ 
+ 
+        System.out.println("Serveur a cree les flux");
+ 
+       /* int[] tableauAEmettre = {7, 8, 9};
+ 
+        out.writeObject(tableauAEmettre);
+        out.flush();
+ */
+        System.out.println("Serveur: donnees emises");
+ 
+        Object objetRecu =  in.readObject();
+        
+        
+        //Connection connectInfo = (Connection) objetRecu;
+        
+        System.out.println(objetRecu.getClass());
+       /* System.out.println(connectInfo.getEmail());
+        System.out.println(connectInfo.getPassword());
+        */
+        //System.out.println("Serveur recoit: " + Arrays.toString(tableauRecu));
+ 
+        in.close();
+        out.close();
+        soc.close();
     }
-    
 }

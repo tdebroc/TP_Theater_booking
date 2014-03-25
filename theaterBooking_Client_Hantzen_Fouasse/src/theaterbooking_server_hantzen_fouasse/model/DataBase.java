@@ -57,7 +57,7 @@ public class DataBase {
     /*
     * execute, insert, update and delete query
     */
-    public boolean executeQuery(String query) {
+    public boolean executeUpdateQuery(String query) {
         int result = 0;
         
         try

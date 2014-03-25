@@ -9,6 +9,9 @@ package theaterbooking_client_hantzen_fouasse.IHM;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
 import packageCommon.*;
 import theaterbooking_client_hantzen_fouasse.IHM.Listener.*;
 
@@ -21,6 +24,7 @@ public class ConnectionWindow extends Window {
         protected JTextField      emailField;
 	protected JPasswordField  passwordField;
         protected Button          connectButton;
+        protected Connection      connect = null;
         
         public ConnectionWindow() {
             super();
@@ -46,12 +50,12 @@ public class ConnectionWindow extends Window {
              * HEY LISTEN !
              */
              this.connectButton.addActionListener(new ConnectionListener() {
+                @Override
                 public void actionPerformed(ActionEvent e) {
-                    Connection connect = new Connection(emailField.getText(),
-                                                        new String(passwordField.getPassword())
-                                                );
-                
-                    System.out.println(passwordField.getPassword());
+                    connect = new Connection(emailField.getText(),
+                                             new String(passwordField.getPassword())
+                                            );
+
                 }
              });
 
@@ -61,6 +65,13 @@ public class ConnectionWindow extends Window {
              panel.add(passwordField);
              panel.add(this.connectButton);
              return panel; 
+        }
+        
+        /*
+        * get connect
+        */
+        public Connection getConnect() {
+            return this.connect;
         }
         
         /*
